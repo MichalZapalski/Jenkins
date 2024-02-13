@@ -1,0 +1,18 @@
+#How to deploy artifact to jFrog Artifactory
+
+        stage('deploy artifact to Artifactory') {
+            steps {
+              dir(path: 'enter path here') {
+                rtServer(id: 'ARTIFACTORY_SERVER', url: 'enter url here', credentialsId: 'enter tech creds here')
+                rtUpload(serverId: 'ARTIFACTORY_SERVER', spec: '''{
+                "files": [
+            {
+              "pattern": "artifact.zip",
+              "target": "enter destination of where artifact should be uploaded"
+            }
+         ]
+            }''')
+                archiveArtifacts 'artifact.zip'
+                }
+            }
+        }
