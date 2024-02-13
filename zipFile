@@ -1,3 +1,0 @@
-#Require https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/ to be working
-
-zip zipFile: 'Test.zip'
